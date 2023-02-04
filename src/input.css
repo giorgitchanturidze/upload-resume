@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* adding HelveticaNeue font */
+@font-face {
+  font-family: 'HelveticaNeue';
+    font-style: normal;
+    font-weight: 500;
+  src: url('../src/fonts/HelveticaNeue.ttc');
+}
+
+/* make font default */
+html {
+  font-family: HelveticaNeue, sans-serif;
+}
