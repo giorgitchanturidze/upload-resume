@@ -13,43 +13,55 @@
       sizes="32x32"
     />
   </head>
-  <body>
+  <body class="flex pb-[65px]">
     <a href="../../index.html" class="absolute left-12 top-[45px]">
       <img src="../../src/assets/back.svg" alt="back" />
     </a>
-    <header
-      class="flex mx-[150px] justify-between items-center py-[12px] mt-[35px] border-b-[1px] border-offblack border-solid"
-    >
-      <h1 class="text-2xl leading-[29px] font-bold text-offblack text-left">ᲞᲘᲠᲐᲓᲘ ᲘᲜᲤᲝ</h1>
-      <span class="text-xl font-normal leading-6 text-right text-offblack">1/3</span>
-    </header>
-    <form>
-        <div>
-          <label for="name">Name:</label>
-          <input type="text" id="name" name="name" required minlength="2" pattern="[ა-ჰ]+">
-        </div>
-        <div>
-          <label for="surname">Surname:</label>
-          <input type="text" id="surname" name="surname" required minlength="2" pattern="[ა-ჰ]+">
-        </div>
-        <div>
-          <label for="image">Image:</label>
-          <input type="file" id="image" name="image" accept="image/*" required>
-        </div>
-        <div>
-          <label for="about-me">About Me:</label>
-          <textarea id="about-me" name="about-me"></textarea>
-        </div>
-        <div>
-          <label for="email">E-mail:</label>
-          <input type="email" id="email" name="email" required pattern="[a-z0-9._%+-]+@redberry.ge">
-        </div>
-        <div>
-          <label for="phone-number">Phone Number:</label>
-          <input type="tel" id="phone-number" name="phone-number" required pattern="\d{3}-\d{2}-\d{2}-\d{2}">
-        </div>
-        <button type="submit">Submit</button>
-      </form>
-      
+    <section class="w-2/3">
+        <header
+        class="flex mx-[150px] justify-between items-center py-[12px] mt-[35px] border-b-[1px] border-offblack border-solid"
+        >
+        <h1 class="text-2xl leading-[29px] font-bold text-offblack text-left">ᲞᲘᲠᲐᲓᲘ ᲘᲜᲤᲝ</h1>
+        <span class="text-xl font-normal leading-6 text-right text-offblack">1/3</span>
+        </header>
+        <form >
+            <div class="flex mt-[69px] mx-[126px] gap-2">
+                <div class="flex flex-col w-full gap-2 px-6 py-2">
+                    <label for="name" class="text-lg text-offblack leading-[21px]">სახელი</label>
+                    <input class="box-border h-12 py-[14px] px-4 outline-none bg-white text-offwhite border-[1px] border-solid border-offwhite rounded-[4px]" type="text" id="name" name="name" required minlength="2" pattern="[ა-ჰ]+" placeholder="სახელი">
+                    <span class="text-sm font-light text-hint leading-[21px]">მინიმუმ 2 ასო, ქართული ასოები</span>
+                </div>
+                <div class="flex flex-col w-full gap-2 px-6 py-2">
+                    <label for="surname" class="text-lg text-offblack leading-[21px]">გვარი</label>
+                    <input class="box-border h-12 py-[14px] px-4 outline-none bg-white text-offwhite border-[1px] border-solid border-offwhite rounded-[4px]" type="text" id="surname" name="surname" required minlength="2" pattern="[ა-ჰ]+" placeholder="გვარი">
+                    <span class="text-sm font-light text-hint leading-[21px]">მინიმუმ 2 ასო, ქართული ასოები</span>
+                </div>
+            </div>
+            <div class="flex ml-[150px] mt-[46px]">
+                <label class="gap-[19px]" for="image">
+                    <span class="text-lg leading-[22px] text-offblack">პირადი ფოტოს ატვირთვა</span>
+                    <button class="rounded-[4px] text-white text-sm leading-[17px] px-[19px] py-[4px] bg-offblue">ატვირთვა</button>
+                </label>
+                <input class="hidden" type="file" id="image" name="image" accept="image/*" required>
+            </div>
+            <div class="flex flex-col mt-[41px] mx-[126px] gap-2 py-2 px-6">
+                <label class="text-lg text-offblack leading-[21px]" for="about-me">ჩემ შესახებ (არასავალდებულო)</label>
+                <textarea class="box-border h-[103px] py-[14px] px-4 outline-none bg-white text-offwhite border-[1px] border-solid border-offwhite rounded-[4px]" id="about-me" name="about-me" placeholder="ზოგადი ინფო შენ შესახებ"></textarea>
+            </div>
+            <div class="flex flex-col mt-[17px] mx-[126px] gap-2 py-2 px-6">
+                <label class="text-lg text-offblack leading-[21px]" for="email">ელ.ფოსტა</label>
+                <input class="box-border h-12 py-[14px] px-4 outline-none bg-white text-offwhite border-[1px] border-solid border-offwhite rounded-[4px]" type="email" id="email" name="email" placeholder="anzorr666@redberry.ge" required pattern="[a-z0-9._%+-]+@redberry.ge">
+                <span class="text-sm font-light text-hint leading-[21px]">უნდა მთავრდებოდეს @redberry.ge-ით</span>
+            </div>
+            <div class="flex flex-col mt-[17px] mx-[126px] gap-2 py-2 px-6">
+                <label class="text-lg text-offblack leading-[21px]" for="phone-number">მობილურის ნომერი</label>
+                <input class="box-border h-12 py-[14px] px-4 outline-none bg-white text-offwhite border-[1px] border-solid border-offwhite rounded-[4px]" type="tel" id="phone-number" name="phone-number" required pattern="\d{3}-\d{2}-\d{2}-\d{2}" placeholder="+995 551 12 34 56">
+            </div>
+            <button class="mt-[152px] mx-[150px] flex ml-auto bg-offpurple text-base leading-5 tracking-[0.08em] text-white py-[18px] px-[35px] rounded-[4px]" type="submit">ᲨᲔᲛᲓᲔᲒᲘ</button>
+        </form>
+    </section>
+    <section class="w-1/3 h-screen">
+        <h1>Hello World!</h1>
+    </section>
   </body>
 </html>
