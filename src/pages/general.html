@@ -14,26 +14,26 @@
     />
   </head>
   <body class="flex pb-[65px]">
-    <a href="../../index.html" class="absolute left-12 top-[45px]">
+    <a href="../../index.html" id="clear-button" class="absolute left-12 top-[45px]">
       <img src="../../src/assets/back.svg" alt="back" />
     </a>
-    <section class="w-2/3">
+    <section class="bg-offgray w-2/3">
         <header
         class="flex mx-[150px] justify-between items-center py-[12px] mt-[35px] border-b-[1px] border-offblack border-solid"
         >
         <h1 class="text-2xl leading-[29px] font-bold text-offblack text-left">ᲞᲘᲠᲐᲓᲘ ᲘᲜᲤᲝ</h1>
         <span class="text-xl font-normal leading-6 text-right text-offblack">1/3</span>
         </header>
-        <form >
+        <form id="form">
             <div class="flex mt-[69px] mx-[126px] gap-2">
                 <div class="flex flex-col w-full gap-2 px-6 py-2">
-                    <label for="name" class="text-lg text-offblack leading-[21px]">სახელი</label>
-                    <input class="box-border h-12 py-[14px] px-4 outline-none bg-white text-offwhite border-[1px] border-solid border-offwhite rounded-[4px]" type="text" id="name" name="name" required minlength="2" pattern="[ა-ჰ]+" placeholder="სახელი">
+                    <label for="name" class="text-lg text-black leading-[21px]">სახელი</label>
+                    <input class="box-border h-12 py-[14px] px-4 outline-none bg-white placeholder:text-offwhite text-black border-[1px] border-solid border-offwhite rounded-[4px]" type="text" id="name" name="name" required minlength="2" pattern="[ა-ჰ]+" placeholder="სახელი">
                     <span class="text-sm font-light text-hint leading-[21px]">მინიმუმ 2 ასო, ქართული ასოები</span>
                 </div>
                 <div class="flex flex-col w-full gap-2 px-6 py-2">
-                    <label for="surname" class="text-lg text-offblack leading-[21px]">გვარი</label>
-                    <input class="box-border h-12 py-[14px] px-4 outline-none bg-white text-offwhite border-[1px] border-solid border-offwhite rounded-[4px]" type="text" id="surname" name="surname" required minlength="2" pattern="[ა-ჰ]+" placeholder="გვარი">
+                    <label for="surname" class="text-lg text-black leading-[21px]">გვარი</label>
+                    <input class="box-border h-12 py-[14px] px-4 outline-none bg-white placeholder:text-offwhite text-black border-[1px] border-solid border-offwhite rounded-[4px]" type="text" id="surname" name="surname" required minlength="2" pattern="[ა-ჰ]+" placeholder="გვარი">
                     <span class="text-sm font-light text-hint leading-[21px]">მინიმუმ 2 ასო, ქართული ასოები</span>
                 </div>
             </div>
@@ -45,23 +45,50 @@
                 <input class="hidden" type="file" id="image" name="image" accept="image/*" required>
             </div>
             <div class="flex flex-col mt-[41px] mx-[126px] gap-2 py-2 px-6">
-                <label class="text-lg text-offblack leading-[21px]" for="about-me">ჩემ შესახებ (არასავალდებულო)</label>
-                <textarea class="box-border h-[103px] py-[14px] px-4 outline-none bg-white text-offwhite border-[1px] border-solid border-offwhite rounded-[4px]" id="about-me" name="about-me" placeholder="ზოგადი ინფო შენ შესახებ"></textarea>
+                <label class="text-lg text-black leading-[21px]" for="about-me">ჩემ შესახებ (არასავალდებულო)</label>
+                <textarea class="box-border h-[103px] py-[14px] px-4 outline-none bg-white placeholder:text-offwhite text-black border-[1px] border-solid border-offwhite rounded-[4px]" id="about-me" name="about-me" placeholder="ზოგადი ინფო შენ შესახებ"></textarea>
             </div>
             <div class="flex flex-col mt-[17px] mx-[126px] gap-2 py-2 px-6">
-                <label class="text-lg text-offblack leading-[21px]" for="email">ელ.ფოსტა</label>
-                <input class="box-border h-12 py-[14px] px-4 outline-none bg-white text-offwhite border-[1px] border-solid border-offwhite rounded-[4px]" type="email" id="email" name="email" placeholder="anzorr666@redberry.ge" required pattern="[a-z0-9._%+-]+@redberry.ge">
+                <label class="text-lg text-black leading-[21px]" for="email">ელ.ფოსტა</label>
+                <input class="box-border h-12 py-[14px] px-4 outline-none bg-white placeholder:text-offwhite text-black border-[1px] border-solid border-offwhite rounded-[4px]" type="email" id="email" name="email" placeholder="anzorr666@redberry.ge" required pattern="[a-z0-9._%+-]+@redberry.ge">
                 <span class="text-sm font-light text-hint leading-[21px]">უნდა მთავრდებოდეს @redberry.ge-ით</span>
             </div>
             <div class="flex flex-col mt-[17px] mx-[126px] gap-2 py-2 px-6">
-                <label class="text-lg text-offblack leading-[21px]" for="phone-number">მობილურის ნომერი</label>
-                <input class="box-border h-12 py-[14px] px-4 outline-none bg-white text-offwhite border-[1px] border-solid border-offwhite rounded-[4px]" type="tel" id="phone-number" name="phone-number" required pattern="\d{3}-\d{2}-\d{2}-\d{2}" placeholder="+995 551 12 34 56">
+                <label class="text-lg text-black leading-[21px]" for="phone-number">მობილურის ნომერი</label>
+                <input class="box-border h-12 py-[14px] px-4 outline-none bg-white placeholder:text-offwhite text-black border-[1px] border-solid border-offwhite rounded-[4px]" type="tel" id="phone-number" name="phone-number" required pattern="\d{3}-\d{2}-\d{2}-\d{2}" placeholder="+995 551 12 34 56">
             </div>
             <button class="mt-[152px] mx-[150px] flex ml-auto bg-offpurple text-base leading-5 tracking-[0.08em] text-white py-[18px] px-[35px] rounded-[4px]" type="submit">ᲨᲔᲛᲓᲔᲒᲘ</button>
         </form>
     </section>
-    <section class="w-1/3 h-screen">
-        <h1>Hello World!</h1>
+    <section class="w-1/3 h-screen pt-[68px] pl-20">
+        <div class="flex border-b-[1px] border-solid border-offlightgray pb-[19px]" id="preview">
+            <div class="flex flex-col">
+                <!-- name-preview and surname-preview -->
+                <div class="whitespace-nowrap">
+                    <span class="text-[34px] leading-[42px] font-bold text-offorange" id="name-preview">სახელი </span>
+                    <span class="text-[34px] leading-[42px] font-bold text-offorange" id="surname-preview">გვარი</span>
+                </div>
+                <!-- email-preview -->
+                <div class="flex items-center gap-[10px] mt-[17px]">
+                    <img src="../assets/email.svg" alt="email">
+                    <span class="text-lg font-normal text-offblack leading-[21px]" id="email-preview">chanturidzegiorgi31@gmail.com</span>
+                </div>
+                <!-- phone-number-preview -->
+                <div class="flex items-center gap-[10px] mt-[10px]">
+                    <img src="../assets/tel.svg" alt="tel">
+                    <span class="text-lg font-normal text-offblack leading-[21px]" id="phone-number-preview">+995 551 12 34 56</span>
+                </div>
+                <!-- about-me-preview -->
+                <div class="mt-[34px]">
+                    <h2 class="text-offorange font-bold text-lg leading-[22px]">ᲩᲔᲛ ᲨᲔᲡᲐᲮᲔᲑ</h2>
+                    <span class="flex text-base font-light max-w-[432px] text-black lowercase mt-[15px] leading-[22px]" id="about-me-preview">ზოგადი ინფო შენ შესახებ</span>
+                </div>
+            </div>
+            <div class="w-full">
+                <!-- image-preview -->
+                <img class="rounded-[133px] object-cover -mt-5" id="image-preview" src="https://via.placeholder.com/200x200" alt="image-preview">
+            </div>
+        </div>
     </section>
   </body>
 </html>
