@@ -1,44 +1,34 @@
-const form = document.querySelector("form");
-const nameInput = document.querySelector("#name");
-const surnameInput = document.querySelector("#surname");
-const imageInput = document.querySelector("#image");
-const emailInput = document.querySelector("#email");
-const phoneNumberInput = document.querySelector("#phone-number");
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("form");
+  const inputs = form.elements;
 
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-
-  const name = nameInput.value.trim();
-  const surname = surnameInput.value.trim();
-  const image = imageInput.files[0];
-  const email = emailInput.value.trim();
-  const phoneNumber = phoneNumberInput.value.trim();
-
-  if (name.length < 2) {
-    alert("Name must be at least 2 characters long");
-    return;
+  // add event listener to each input
+  for (let i = 0; i < inputs.length; i++) {
+    inputs[i].addEventListener("input", function () {
+      // Get the current input value
+      const inputValue = inputs[i].value;
+      // Update the corresponding element in the preview container
+      document.getElementById(inputs[i].name + "-preview").innerHTML = inputValue;
+      // Save form data to local storage when input values change
+      localStorage.setItem(inputs[i].name, inputValue);
+    });
   }
 
-  if (surname.length < 2) {
-    alert("Surname must be at least 2 characters long");
-    return;
-  }
-
-  if (!image) {
-    alert("Image is required");
-    return;
-  }
-
-  if (!email.endsWith("@redberry.ge")) {
-    alert("Email must end with @redberry.ge");
-    return;
-  }
-
-  if (!/\d{3}-\d{2}-\d{2}-\d{2}/.test(phoneNumber)) {
-    alert("Phone number must be in the format XXX-XX-XX-XX");
-    return;
-  }
-
-  // Submit the form if all validation checks pass
-  form.submit();
+  // Load form data from local storage on page load
+  window.addEventListener("load", function () {
+    for (let i = 0; i < inputs.length; i++) {
+      const storedValue = localStorage.getItem(inputs[i].name);
+      if (storedValue) {
+        inputs[i].value = storedValue;
+        document.getElementById(inputs[i].name + "-preview").innerHTML = storedValue;
+      }
+    }
+  });
+  // Get the clear button
+  const clearButton = document.getElementById("clear-button");
+  
+  // Bind an event listener to the clear button to clear local storage
+  clearButton.addEventListener("click", function () {
+    localStorage.clear();
+  });
 });
