@@ -7,8 +7,16 @@ document.addEventListener("DOMContentLoaded", function () {
     inputs[i].addEventListener("input", function () {
       // Get the current input value
       const inputValue = inputs[i].value;
-      // Update the corresponding element in the preview container
-      document.getElementById(inputs[i].name + "-preview").innerHTML = inputValue;
+      // Check if the input is a image
+      if (inputs[i].type === "file") {
+        // Get the image preview container
+        const imagePreview = document.getElementById("image-preview");
+        // Set the image source to the input value
+        imagePreview.src = URL.createObjectURL(inputs[i].files[0]);
+      }else{
+        // Update the corresponding element in the preview container
+        document.getElementById(inputs[i].name + "-preview").innerHTML = inputValue;
+      }
       // Save form data to local storage when input values change
       localStorage.setItem(inputs[i].name, inputValue);
     });
@@ -18,9 +26,15 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("load", function () {
     for (let i = 0; i < inputs.length; i++) {
       const storedValue = localStorage.getItem(inputs[i].name);
+      console.log(storedValue);
       if (storedValue) {
+        // If inputs[i].name is image, set the image source to the stored value
+        if (inputs[i].name === "image") {
+          document.getElementById("image-preview").src = storedValue;
+        }else{
         inputs[i].value = storedValue;
         document.getElementById(inputs[i].name + "-preview").innerHTML = storedValue;
+      }
       }
     }
   });
@@ -32,3 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.clear();
   });
 });
+  // Upload image
+  function uploadImage() {
+    document.getElementById("image").click();
+  }
