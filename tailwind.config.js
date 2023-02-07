@@ -11,6 +11,8 @@ module.exports = {
         offorange: "#F93B1D",
         offgray: "#f9f9f9",
         offlightgray: "#C8C8C8",
+        offred: "#E52F2F",
+        offgreen: "#98E37E",
         hint:"#2E2E2E",
       },
     },
