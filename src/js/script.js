@@ -13,12 +13,18 @@ document.addEventListener("DOMContentLoaded", function () {
         const imagePreview = document.getElementById("image-preview");
         // Set the image source to the input value
         imagePreview.src = URL.createObjectURL(inputs[i].files[0]);
+        // Save form data to local storage when input values change
+        localStorage.setItem(inputs[i].name, imagePreview.src);
+        // Validate the image input
+        validateImage(inputs[i]);
       }else{
         // Update the corresponding element in the preview container
         document.getElementById(inputs[i].name + "-preview").innerHTML = inputValue;
+        // Save form data to local storage when input values change
+        localStorage.setItem(inputs[i].name, inputValue);
+        // Validate the text input
+        validateTextInput(inputs[i]);
       }
-      // Save form data to local storage when input values change
-      localStorage.setItem(inputs[i].name, inputValue);
     });
   }
 
@@ -38,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
   });
+  
   // Get the clear button
   const clearButton = document.getElementById("clear-button");
   
